@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Flipkart-style Shoe Product</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* small custom styles for scanner line animation and modal backdrop */
+    .scanner {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, rgba(255,204,0,0) 0%, rgba(255,204,0,0.95) 50%, rgba(255,204,0,0) 100%);
+      border-radius: 4px;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+      animation: scanY 2.2s linear infinite;
+    }
+
+    @keyframes scanY {
+      0%   { transform: translateY(-110%); }
+      50%  { transform: translateY(110%); }
+      100% { transform: translateY(-110%); }
+    }
+
+    /* subtle fade-in for modals */
+    .modal-backdrop { transition: opacity 0.18s ease; }
+  </style>
+</head>
+<body class="bg-white text-gray-900">
+
+  <!-- NAVBAR -->
+  <header class="w-full border-b">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="text-2xl font-bold">👟ShoeVerse</div>
+        <span class="text-sm text-gray-500">— Premium Shoes</span>
+      </div>
+      <nav class="hidden md:flex gap-6 text-sm">
+        <a href="#" class="hover:text-gray-700">Home</a>
+        <a href="#" class="hover:text-gray-700">Products</a>
+        <a href="#" class="hover:text-gray-700">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PRODUCT LAYOUT -->
+  <main class="max-w-6xl mx-auto px-6 py-10 grid md:grid-cols-2 gap-8">
+    <!-- LEFT: gallery -->
+    <div class="space-y-4">
+      <div class="bg-white rounded-xl shadow-lg p-4 flex justify-center">
+        <!-- main image -->
+        <img id="mainImg" src="https://m.media-amazon.com/images/I/61LFuEQGv5L._SY575_.jpg" alt="Product" class="w-full max-w-md object-contain rounded-lg" />
+      </div>
+
+      <!-- thumbnails row -->
+      <div class="flex items-center gap-3">
+        <button class="thumb w-20 h-20 rounded-lg overflow-hidden shadow-sm" onclick="setImage('https://m.media-amazon.com/images/I/81IJhA1pj0L._SY575_.jpg')">
+          <img src="https://m.media-amazon.com/images/I/81IJhA1pj0L._SY575_.jpg" alt="t1" class="w-full h-full object-cover"/>
+        </button>
+        <button class="thumb w-20 h-20 rounded-lg overflow-hidden shadow-sm" onclick="setImage('https://m.media-amazon.com/images/I/717GWWh7sPL._SY575_.jpg')">
+          <img src="https://m.media-amazon.com/images/I/717GWWh7sPL._SY575_.jpg" alt="t2" class="w-full h-full object-cover"/>
+        </button>
+        <button class="thumb w-20 h-20 rounded-lg overflow-hidden shadow-sm" onclick="setImage('https://m.media-amazon.com/images/I/61JHYV0pUXL._SY575_.jpg')">
+          <img src="https://m.media-amazon.com/images/I/61JHYV0pUXL._SY575_.jpg" alt="t3" class="w-full h-full object-cover"/>
+        </button>
+      </div>
+    </div>
+
+    <!-- RIGHT: product details -->
+    <div>
+      <h1 class="text-3xl font-bold mb-2">AirPro Runner — Men's Running Shoes</h1>
+      <div class="flex items-center gap-3 mb-3">
+        <div class="bg-green-700 text-white px-2 py-1 rounded text-sm font-semibold">4.6 ★</div>
+        <div class="text-sm text-gray-500"> (1,254 Ratings & 320 Reviews)</div>
+      </div>
+
+      <div class="flex items-baseline gap-4 mb-4">
+        <div class="text-3xl font-bold">₹3,499</div>
+        <div class="text-gray-500 line-through">₹5,999</div>
+        <div class="text-green-600 font-semibold">41% off</div>
+      </div>
+
+      <p class="text-gray-700 mb-4">Lightweight breathable mesh, cushioned midsole and excellent traction — ideal for daily runs and street style.</p>
+
+      <ul class="text-sm text-gray-600 mb-6 space-y-2">
+        <li>• Material: Breathable Mesh + Synthetic</li>
+        <li>• Colors: Black / Blue / White</li>
+        <li>• Warranty: 6 months manufacturer</li>
+      </ul>
+
+      <div class="flex items-center gap-3 mb-6">
+        <button onclick="openForm()" class="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-3 rounded-md font-semibold shadow">
+          Buy Now
+        </button>
+      </div>
+
+      <hr class="my-6" />
+
+      <div class="text-sm text-gray-600">
+        <div class="font-semibold mb-1">Delivery</div>
+        <div>Free delivery • Cash on delivery available</div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ORDER FORM MODAL -->
+  <div id="orderModal" class="fixed inset-0 hidden items-center justify-center z-50 modal-backdrop">
+    <div class="absolute inset-0 bg-black/40" onclick="closeForm()"></div>
+    <div class="relative bg-white rounded-2xl shadow-2xl w-[92%] max-w-lg p-6 z-60">
+      <button class="absolute right-4 top-4 text-gray-500" onclick="closeForm()">✕</button>
+      <h3 class="text-xl font-bold mb-3">Enter Delivery Details</h3>
+
+      <div class="grid gap-3">
+        <input id="custName" type="text" placeholder="Full name" class="w-full border rounded-md p-2" />
+        <input id="custPhone" type="tel" placeholder="Phone number" class="w-full border rounded-md p-2" />
+        <textarea id="custAddress" rows="3" placeholder="Full delivery address" class="w-full border rounded-md p-2"></textarea>
+
+        <!-- size select -->
+        <div>
+          <label class="block text-sm font-medium mb-1">Select Size</label>
+          <div class="flex gap-2">
+            <select id="sizeSelect" class="border rounded-md p-2 w-full">
+              <option value="">Choose size</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+              <option>11</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- product summary readonly -->
+        <input id="ordProduct" type="text" value="AirPro Runner — Men's Running Shoes" readonly class="w-full border rounded-md p-2 bg-gray-50" />
+        <input id="ordPrice" type="text" value="₹3,499" readonly class="w-full border rounded-md p-2 bg-gray-50" />
+
+        <div class="flex justify-between items-center pt-2">
+          <button onclick="closeForm()" class="px-4 py-2 rounded-md border">Cancel</button>
+          <button onclick="submitOrder()" class="px-4 py-2 rounded-md bg-yellow-500 text-black font-semibold">Send via WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UPI PAYMENT MODAL -->
+  <div id="upiModal" class="fixed inset-0 hidden flex items-center justify-center z-60">
+    <div class="absolute inset-0 bg-black/40" onclick="closePayment()"></div>
+
+    <div class="relative bg-white rounded-2xl shadow-2xl w-[92%] max-w-md p-6 z-70">
+      <button class="absolute right-4 top-4 text-gray-500" onclick="closePayment()">✕</button>
+      <h3 class="text-lg font-bold mb-4">Pay via UPI</h3>
+      <p class="text-sm text-gray-600 mb-4">Scan the QR below using PhonePe / Google Pay / Paytm or copy the UPI ID.</p>
+
+      <div class="relative bg-gray-50 p-4 rounded-lg mb-4 flex flex-col items-center">
+        <!-- yellow scanner line container -->
+        <div class="w-full max-w-xs relative h-60 flex items-center justify-center">
+          <!-- place QR in center -->
+          <img id="qrImg" src="images/qr.png" alt="QR" class="w-52 h-52 object-contain rounded-md shadow" />
+          <!-- animated scanner line (moves up-down over QR container) -->
+          <div class="scanner" style="top:0"></div>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between bg-gray-100 p-3 rounded-md mb-4">
+        <div class="text-sm font-medium" id="upiIdTxt">yourupi@bank</div>
+        <button class="text-sm text-blue-600" onclick="copyUPI()">Copy</button>
+      </div>
+
+      <div class="flex gap-3">
+        <button onclick="paidClicked()" class="flex-1 bg-black text-white py-2 rounded-md font-semibold">I have paid</button>
+        <button onclick="closePayment()" class="flex-1 border py-2 rounded-md">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIMPLE TOAST -->
+  <div id="toast" class="fixed left-1/2 -translate-x-1/2 bottom-10 hidden bg-black text-white px-4 py-2 rounded-md shadow"></div>
+
+  <script>
+    /* ---------------------------
+       Replace these with your data
+       --------------------------- */
+    const WHATSAPP_NUMBER = "919876543210"; // without +, example: 919876543210
+    const UPI_ID = "hetshoestore@upi";
+    // Replace image paths if you have different names:
+    // put product images in `images/product.png`, `images/product-2.png`, `images/product-3.png`
+    // put qr image in `images/qr.png`
+    /* --------------------------- */
+
+    // set UPI id text
+    document.addEventListener('DOMContentLoaded', () => {
+      const upiText = document.getElementById('upiIdTxt');
+      if (upiText) upiText.innerText = UPI_ID;
+    });
+
+    // gallery image switch
+    function setImage(src) {
+      const main = document.getElementById('mainImg');
+      if (main) main.src = src;
+    }
+
+    // modals open/close
+    function openForm() {
+      document.getElementById('orderModal').style.display = 'flex';
+      document.getElementById('orderModal').classList.add('items-center','justify-center');
+    }
+    function closeForm() {
+      document.getElementById('orderModal').style.display = 'none';
+    }
+    function openPayment() {
+      document.getElementById('upiModal').style.display = 'flex';
+      document.getElementById('upiModal').classList.add('items-center','justify-center');
+    }
+    function closePayment() {
+      document.getElementById('upiModal').style.display = 'none';
+    }
+
+    // toast
+    function showToast(msg, time=2000) {
+      const t = document.getElementById('toast');
+      t.innerText = msg;
+      t.classList.remove('hidden');
+      setTimeout(()=> t.classList.add('hidden'), time);
+    }
+
+    // form submit -> send whatsapp -> show payment modal
+    function submitOrder(){
+      const name = document.getElementById('custName').value.trim();
+      const phone = document.getElementById('custPhone').value.trim();
+      const address = document.getElementById('custAddress').value.trim();
+      const size = document.getElementById('sizeSelect').value;
+      const product = document.getElementById('ordProduct').value;
+      const price = document.getElementById('ordPrice').value;
+
+      if (!name || !phone || !address || !size) {
+        alert('Please fill all details and choose size.');
+        return;
+      }
+
+      // prepare message for WhatsApp
+      let msg = `*New Order*%0AProduct: ${encodeURIComponent(product)}%0APrice: ${encodeURIComponent(price)}%0ASize: ${encodeURIComponent(size)}%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0AAddress: ${encodeURIComponent(address)}`;
+      let link = `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
+
+      // open whatsapp
+      window.open(link, '_blank');
+
+      // close form and show payment after short delay
+      closeForm();
+      setTimeout(() => { openPayment(); }, 900);
+    }
+
+    // copy UPI
+    function copyUPI() {
+      navigator.clipboard.writeText(UPI_ID).then(() => {
+        showToast('UPI ID copied ✅');
+      }).catch(() => {
+        alert('Copy failed. Please copy manually: ' + UPI_ID);
+      });
+    }
+
+    // "I have paid" clicked
+    function paidClicked() {
+      closePayment();
+      showToast('Thanks! Payment noted. We will confirm your order soon.');
+      // TODO: you can add further logic here (call backend to verify payment, etc.)
+    }
+
+    // safety: if images missing, use placeholders (optional)
+    window.addEventListener('error', (e) => {
+      // ignore missing image errors silently
+    });
+  </script>
+</body>
+</html>
