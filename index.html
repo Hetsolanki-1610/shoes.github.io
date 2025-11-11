@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShoeVerse | Premium Shoes</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-black font-sans">
+
+  <!-- 🔹 Navbar -->
+  <nav class="fixed top-0 left-0 w-full bg-white shadow-lg z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+      <h1 class="text-2xl font-bold tracking-wide">👟 ShoeVerse</h1>
+      <ul class="hidden md:flex space-x-8 font-medium">
+        <li><a href="#home" class="hover:text-blue-600">Home</a></li>
+        <li><a href="#products" class="hover:text-blue-600">Products</a></li>
+        <li><a href="#offers" class="hover:text-blue-600">Offers</a></li>
+        <li><a href="#about" class="hover:text-blue-600">About</a></li>
+        <li><a href="#contact" class="hover:text-blue-600">Contact</a></li>
+      </ul>
+      <button id="menuBtn" class="text-3xl md:hidden">☰</button>
+    </div>
+  </nav>
+
+  <!-- 🔹 Mobile Menu -->
+  <div id="mobileMenu" class="hidden fixed top-[64px] left-0 w-full bg-white shadow-md flex-col space-y-4 text-center py-6 font-semibold z-40">
+    <a href="#home" class="block hover:text-blue-600">Home</a>
+    <a href="#products" class="block hover:text-blue-600">Products</a>
+    <a href="#offers" class="block hover:text-blue-600">Offers</a>
+    <a href="#about" class="block hover:text-blue-600">About</a>
+    <a href="#contact" class="block hover:text-blue-600">Contact</a>
+  </div>
+
+  <!-- 🔹 Hero Banner -->
+  <section id="home" class="mt-[70px]">
+    <img src="https://cdnb.artstation.com/p/assets/images/images/072/045/719/large/ahsan-niazi-679d74182011803-6526133fc9ea7.jpg?1706525515" 
+         alt="Shoes Banner" 
+         class="w-full h-[280px] md:h-[520px] object-cover object-center">
+    <div class="text-center mt-6">
+      <h2 class="text-4xl md:text-5xl font-extrabold">Step Into Style</h2>
+      <p class="text-gray-600 mt-3">Explore our latest premium shoe collection for men and women.</p>
+      <a href="#products" class="inline-block mt-6 bg-black text-white px-8 py-3 rounded-full hover:bg-gray-800 transition">Shop Now</a>
+    </div>
+  </section>
+
+  <!-- 🔹 Products Section -->
+  <section id="products" class="max-w-7xl mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold text-center mb-8">Our Latest Collection</h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      
+      <!-- Product 1 -->
+      <div class="border rounded-xl shadow-md hover:shadow-lg transition p-3">
+        <img src="https://jordenduck.com/wp-content/uploads/2024/09/WhatsApp-Image-2024-09-15-at-07.57.30_8ee641a1.jpg" alt="Running Shoes" class="w-full h-56 object-cover rounded-lg mb-3">
+        <h3 class="font-semibold text-lg">Air Zoom Runner</h3>
+        <p class="text-gray-600 mb-2">₹4,999</p>
+        <button class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 w-full">Buy Now</button>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="border rounded-xl shadow-md hover:shadow-lg transition p-3">
+        <img src="https://assets.ajio.com/medias/sys_master/root/20240809/Zpli/66b62bad1d763220fa6e7788/-473Wx593H-469654391-white-MODEL.jpg" alt="Sneakers" class="w-full h-56 object-cover rounded-lg mb-3">
+        <h3 class="font-semibold text-lg">Urban Sneakers</h3>
+        <p class="text-gray-600 mb-2">₹3,499</p>
+        <button class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 w-full">Buy Now</button>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="border rounded-xl shadow-md hover:shadow-lg transition p-3">
+        <img src="https://www.dukeindia.com/cdn/shop/files/1_eafe96b3-e27d-44ae-bb24-37df1cb1e23b_1024x1024.jpg?v=1755238976" alt="Sports Shoes" class="w-full h-56 object-cover rounded-lg mb-3">
+        <h3 class="font-semibold text-lg">Sport Flex</h3>
+        <p class="text-gray-600 mb-2">₹5,199</p>
+        <button class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 w-full">Buy Now</button>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="border rounded-xl shadow-md hover:shadow-lg transition p-3">
+        <img src="https://rukminim2.flixcart.com/image/480/640/xif0q/shoe/a/w/6/10-2973chocbrwn-leo-s-fitness-shoes-brown-original-imagz2erkrxz5hcb.jpeg?q=90" alt="Casual Shoes" class="w-full h-56 object-cover rounded-lg mb-3">
+        <h3 class="font-semibold text-lg">Casual Comfort</h3>
+        <p class="text-gray-600 mb-2">₹2,899</p>
+        <button class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 w-full">Buy Now</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 🔹 Offer Banner -->
+ <section class="max-w-7xl mx-auto px-6 py-16 flex flex-col md:flex-row items-center gap-10">
+  <!-- 🔹 Left Image -->
+  <div class="md:w-1/2">
+    <img 
+      src="https://fausto.in/cdn/shop/articles/Casual-loafer-shoes-banner.jpg?v=1729060238" 
+      alt="Premium Shoes"
+      class="w-full h-[250px] md:h-[350px] object-cover rounded-2xl shadow-xl hover:scale-[1.02] transition-transform duration-500"
+    >
+  </div>
+
+  <!-- 🔹 Right Text -->
+  <div class="md:w-1/2 text-center md:text-left">
+    <h2 class="text-3xl md:text-4xl font-bold mb-4">Comfort Meets Style</h2>
+    <p class="text-gray-600 leading-relaxed mb-6">
+      Experience the perfect balance of fashion and comfort with our latest footwear collection.  
+      Each pair is crafted using breathable materials, cushioned soles, and elegant designs — 
+      made to keep you moving in style all day long.
+    </p>
+    <a href="#products" class="inline-block bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800 transition">
+      Explore Collection
+    </a>
+  </div>
+</section>
+
+ <section id="products" class="max-w-7xl mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold text-center mb-8"></h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      
+      <!-- Product 1 -->
+      <div class="border rounded-xl shadow-md hover:shadow-lg transition p-3">
+        <img src="https://bugattishoes.in/cdn/shop/files/Cropped__Custom.jpg?v=1762413828&width=3000" alt="Running Shoes" class="w-full h-56 object-cover rounded-lg mb-3">
+        <h3 class="font-semibold text-lg">bugatti Chesley Cognac Premium Leather Comfort Slip-Ons</h3>
+        <p class="text-gray-600 mb-2">₹4,999</p>
+        <button class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 w-full">Buy Now</button>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="border rounded-xl shadow-md hover:shadow-lg transition p-3">
+        <img src="https://bugattishoes.in/cdn/shop/files/318-A5Q60-1000-7100.jpg?v=1746781986&width=3000" alt="Sneakers" class="w-full h-56 object-cover rounded-lg mb-3">
+        <h3 class="font-semibold text-lg">bugatti Mansueto Flex Dark Green Premium Leather Comfort</h3>
+        <p class="text-gray-600 mb-2">₹3,499</p>
+        <button class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 w-full">Buy Now</button>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="border rounded-xl shadow-md hover:shadow-lg transition p-3">
+        <img src="https://bugattishoes.in/cdn/shop/files/328-AQ965-1400-1000.jpg?v=1746781366&width=3000" alt="Sports Shoes" class="w-full h-56 object-cover rounded-lg mb-3">
+        <h3 class="font-semibold text-lg">bugatti Manfield black Premium Leather Comfort</h3>
+        <p class="text-gray-600 mb-2">₹5,199</p>
+        <button class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 w-full">Buy Now</button>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="border rounded-xl shadow-md hover:shadow-lg transition p-3">
+        <img src="https://bugattishoes.in/cdn/shop/files/321-A2X6G-4000-6300_0010.jpg?v=1746781470&width=3000" alt="Casual Shoes" class="w-full h-56 object-cover rounded-lg mb-3">
+        <h3 class="font-semibold text-lg">bugatti Chesley cognac Premium Leather Comfort </h3>
+        <p class="text-gray-600 mb-2">₹2,899</p>
+        <button class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 w-full">Buy Now</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 🔹 About Section -->
+  <section id="about" class="max-w-6xl mx-auto px-4 py-16 text-center">
+    <h2 class="text-3xl font-bold mb-6">About ShoeVerse</h2>
+    <p class="text-gray-600 leading-relaxed max-w-3xl mx-auto">
+      At ShoeVerse, we redefine comfort and style. From sneakers to loafers, we bring premium quality footwear 
+      that combines fashion with performance. Crafted with care, designed for comfort — because every step counts.
+    </p>
+  </section>
+
+  <!-- 🔹 Contact Section -->
+  <section id="contact" class="bg-gray-100 py-16">
+    <div class="max-w-4xl mx-auto text-center px-4">
+      <h2 class="text-3xl font-bold mb-6">Contact Us</h2>
+      <form class="grid gap-4">
+        <input type="text" placeholder="Your Name" class="p-3 border rounded">
+        <input type="email" placeholder="Your Email" class="p-3 border rounded">
+        <textarea placeholder="Your Message" class="p-3 border rounded"></textarea>
+        <button type="submit" class="bg-black text-white px-6 py-3 rounded hover:bg-gray-800">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- 🔹 Footer -->
+  <footer class="bg-black text-white py-6 text-center">
+    <p>© 2025 ShoeVerse. All rights reserved. | Designed by Het Web Studio</p>
+  </footer>
+
+  <!-- 🔹 JavaScript -->
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+
+</body>
+</html>
