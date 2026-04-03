@@ -1,191 +1,372 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ShoeVerse | Premium Shoes</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Flipkart-style Shoe Product</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* small custom styles for scanner line animation and modal backdrop */
+    .scanner {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, rgba(255, 204, 0, 0) 0%, rgba(255, 204, 0, 0.95) 50%, rgba(255, 204, 0, 0) 100%);
+      border-radius: 4px;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+      animation: scanY 2.2s linear infinite;
+    }
+
+    @keyframes scanY {
+      0% {
+        transform: translateY(-110%);
+      }
+
+      50% {
+        transform: translateY(110%);
+      }
+
+      100% {
+        transform: translateY(-110%);
+      }
+    }
+
+    /* subtle fade-in for modals */
+    .modal-backdrop {
+      transition: opacity 0.18s ease;
+    }
+  </style>
 </head>
-<body class="bg-white text-black font-sans">
 
-  <!-- 🔹 Navbar -->
-  <nav class="fixed top-0 left-0 w-full bg-white shadow-lg z-50">
-    <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
-      <h1 class="text-2xl font-bold tracking-wide">👟 ShoeVerse</h1>
-      <ul class="hidden md:flex space-x-8 font-medium">
-        <li><a href="#home" class="hover:text-blue-600">Home</a></li>
-        <li><a href="#products" class="hover:text-blue-600">Products</a></li>
-        <li><a href="#offers" class="hover:text-blue-600">Offers</a></li>
-        <li><a href="#about" class="hover:text-blue-600">About</a></li>
-        <li><a href="#contact" class="hover:text-blue-600">Contact</a></li>
-      </ul>
-      <button id="menuBtn" class="text-3xl md:hidden">☰</button>
-    </div>
-  </nav>
+<body class="bg-white text-gray-900">
 
-  <!-- 🔹 Mobile Menu -->
-  <div id="mobileMenu" class="hidden fixed top-[64px] left-0 w-full bg-white shadow-md flex-col space-y-4 text-center py-6 font-semibold z-40">
-    <a href="#home" class="block hover:text-blue-600">Home</a>
-    <a href="#products" class="block hover:text-blue-600">Products</a>
-    <a href="#offers" class="block hover:text-blue-600">Offers</a>
-    <a href="#about" class="block hover:text-blue-600">About</a>
-    <a href="#contact" class="block hover:text-blue-600">Contact</a>
-  </div>
+  <!-- MAIN CONTAINER FULL SCREEN -->
+  <div class="-h-scree w-full">
 
-  <!-- 🔹 Hero Banner -->
-  <section id="home" class="mt-[70px]">
-    <img src="https://cdnb.artstation.com/p/assets/images/images/072/045/719/large/ahsan-niazi-679d74182011803-6526133fc9ea7.jpg?1706525515" 
-         alt="Shoes Banner" 
-         class="w-full h-[240px] md:h-[520px] object-cover object-center">
-    <div class="text-center mt-6">
-      <h2 class="text-4xl md:text-5xl font-extrabold">Step Into Style</h2>
-      <p class="text-gray-600 mt-3">Explore our latest premium shoe collection for men and women.</p>
-      <a href="#products" class="inline-block mt-6 bg-black text-white px-8 py-3 rounded-full hover:bg-gray-800 transition">Shop Now</a>
-    </div>
-  </section>
+    <!-- HEADER -->
+    <div class="bg-red-500 text-white px-2 pt-3 pb-2 rounded-b-[30px]">
 
-  <!-- 🔹 Products Section -->
-  <section id="products" class="max-w-7xl mx-auto px-4 py-16">
-    <h2 class="text-3xl font-bold text-center mb-8">Our Latest Collection</h2>
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      
-      <!-- Product 1 -->
-      <div class="border rounded-xl shadow-md hover:shadow-lg transition p-3">
-        <img src="https://jordenduck.com/wp-content/uploads/2024/09/WhatsApp-Image-2024-09-15-at-07.57.30_8ee641a1.jpg" alt="Running Shoes" class="w-full h-56 object-cover rounded-lg mb-3">
-        <h3 class="font-semibold text-lg">Air Zoom Runner</h3>
-        <p class="text-gray-600 mb-2">₹4,999</p>
-        <button class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 w-full"  onclick="window.location.href='op.html'">Buy Now</button>
+      <div class="flex justify-between items-center mb-2">
+        <div>
+          <p class="text-sm opacity-80">Welcome</p>
+          <p class="font-semibold">📍Chamunda Prime</p>
+        </div>
+        <div class="w-10 h-10 rounded-full overflow-hidden border-1 shadow">
+          <img src="pic/ChatGPT Image Mar 21, 2026, 09_11_14 PM.png" class="w-full h-full object-cover">
+        </div>
       </div>
 
-      <!-- Product 2 -->
-      <div class="border rounded-xl shadow-md hover:shadow-lg transition p-3">
-        <img src="https://assets.ajio.com/medias/sys_master/root/20240809/Zpli/66b62bad1d763220fa6e7788/-473Wx593H-469654391-white-MODEL.jpg" alt="Sneakers" class="w-full h-56 object-cover rounded-lg mb-3">
-        <h3 class="font-semibold text-lg">Urban Sneakers</h3>
-        <p class="text-gray-600 mb-2">₹3,499</p>
-        <button class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 w-full">Buy Now</button>
-      </div>
-
-      <!-- Product 3 -->
-      <div class="border rounded-xl shadow-md hover:shadow-lg transition p-3">
-        <img src="https://www.dukeindia.com/cdn/shop/files/1_eafe96b3-e27d-44ae-bb24-37df1cb1e23b_1024x1024.jpg?v=1755238976" alt="Sports Shoes" class="w-full h-56 object-cover rounded-lg mb-3">
-        <h3 class="font-semibold text-lg">Sport Flex</h3>
-        <p class="text-gray-600 mb-2">₹5,199</p>
-        <button class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 w-full">Buy Now</button>
-      </div>
-
-      <!-- Product 4 -->
-      <div class="border rounded-xl shadow-md hover:shadow-lg transition p-3">
-        <img src="https://rukminim2.flixcart.com/image/480/640/xif0q/shoe/a/w/6/10-2973chocbrwn-leo-s-fitness-shoes-brown-original-imagz2erkrxz5hcb.jpeg?q=90" alt="Casual Shoes" class="w-full h-56 object-cover rounded-lg mb-3">
-        <h3 class="font-semibold text-lg">Casual Comfort</h3>
-        <p class="text-gray-600 mb-2">₹2,899</p>
-        <button class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 w-full">Buy Now</button>
-      </div>
+      <!-- SEARCH -->
 
     </div>
-  </section>
 
-  <!-- 🔹 Offer Banner -->
- <section class="max-w-7xl mx-auto px-6 py-16 flex flex-col md:flex-row items-center gap-10">
-  <!-- 🔹 Left Image -->
-  <div class="md:w-1/2">
-    <img 
-      src="https://fausto.in/cdn/shop/articles/Casual-loafer-shoes-banner.jpg?v=1729060238" 
-      alt="Premium Shoes"
-      class="w-full h-[250px] md:h-[350px] object-cover rounded-2xl shadow-xl hover:scale-[1.02] transition-transform duration-500"
-    >
-  </div>
 
-  <!-- 🔹 Right Text -->
-  <div class="md:w-1/2 text-center md:text-left">
-    <h2 class="text-3xl md:text-4xl font-bold mb-4">Comfort Meets Style</h2>
-    <p class="text-gray-600 leading-relaxed mb-6">
-      Experience the perfect balance of fashion and comfort with our latest footwear collection.  
-      Each pair is crafted using breathable materials, cushioned soles, and elegant designs — 
-      made to keep you moving in style all day long.
-    </p>
-    <a href="#products" class="inline-block bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800 transition">
-      Explore Collection
-    </a>
-  </div>
-</section>
+    <!-- PRODUCT LAYOUT -->
+    <main class="max-w-6xl mx-auto px-6 py-10 grid md:grid-cols-2 gap-8">
+      <!-- LEFT: gallery -->
+      <div class="max-w-md mx-auto">
 
- <section id="products" class="max-w-7xl mx-auto px-4 py-16">
-    <h2 class="text-3xl font-bold text-center mb-8"></h2>
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      
-      <!-- Product 1 -->
-      <div class="border rounded-xl shadow-md hover:shadow-lg transition p-3">
-        <img src="https://bugattishoes.in/cdn/shop/files/Cropped__Custom.jpg?v=1762413828&width=3000" alt="Running Shoes" class="w-full h-56 object-cover rounded-lg mb-3">
-        <h3 class="font-semibold text-lg">bugatti Chesley Cognac Premium Leather Comfort Slip-Ons</h3>
-        <p class="text-gray-600 mb-2">₹4,999</p>
-        <button class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 w-full">Buy Now</button>
+        <!-- IMAGE CONTAINER -->
+        <div class="relative overflow-hidden rounded-xl shadow-lg">
+
+          <div id="slider" class="flex transition-transform duration-500">
+            <img src="https://m.media-amazon.com/images/I/71W5xoVo+HL._SX679_.jpg" class="w-full flex-shrink-0">
+            <img src="https://m.media-amazon.com/images/I/51+00yVlomL._SX679_.jpg" class="w-full flex-shrink-0">
+            <img src="https://m.media-amazon.com/images/I/61Ix0l8xfOL._SX679_.jpg" class="w-full flex-shrink-0">
+            <img src="https://m.media-amazon.com/images/I/717UxWGJOmL._SX679_.jpg" class="w-full flex-shrink-0">
+          </div>
+
+        </div>
+
+        <!-- DOTS -->
+        <div class="flex justify-center mt-4 gap-2" id="dots">
+          <span class="dot w-2.5 h-2.5 bg-gray-400 rounded-full"></span>
+          <span class="dot w-2.5 h-2.5 bg-gray-400 rounded-full"></span>
+          <span class="dot w-2.5 h-2.5 bg-gray-400 rounded-full"></span>
+          <span class="dot w-2.5 h-2.5 bg-gray-400 rounded-full"></span>
+        </div>
+
       </div>
 
-      <!-- Product 2 -->
-      <div class="border rounded-xl shadow-md hover:shadow-lg transition p-3">
-        <img src="https://bugattishoes.in/cdn/shop/files/318-A5Q60-1000-7100.jpg?v=1746781986&width=3000" alt="Sneakers" class="w-full h-56 object-cover rounded-lg mb-3">
-        <h3 class="font-semibold text-lg">bugatti Mansueto Flex Dark Green Premium Leather Comfort</h3>
-        <p class="text-gray-600 mb-2">₹3,499</p>
-        <button class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 w-full">Buy Now</button>
+      <!-- RIGHT: product details -->
+      <div>
+        <h1 class="text-3xl font-bold mb-2">Eyewearlabs OKNO | Polarized Full Rim Square Branded Stylish...</h1>
+
+        <div class="flex items-center gap-3 mb-3">
+          <div class="bg-green-700 text-white px-2 py-1 rounded text-sm font-semibold">4.0 ★</div>
+          <!-- <div class="text-sm text-gray-500"> (1,254 Ratings & 320 Reviews)</div> -->
+        </div>
+
+        <div class="flex items-baseline gap-4 mb-4">
+          <div class="text-3xl font-bold">₹711</div>
+          <div class="text-green-600 font-semibold">-80% off</div>
+        </div>
+
+        <p class="text-gray-700 mb-2">• 🕶️ 100% UV Protection and POLARIZED LENSES: Eyewearlabs OKNO Sunglasses are
+          Polarized and 100% UV Protected. Polarized lenses can filter out sunlight reflected glare, and protect your
+          eyes from long-term damage by blocking 100% of harmful UV400 rays.</p>
+        <p class="text-gray-700 mb-4">• These lenses are Anti-Glare / Anti-Reflective and Crack Resistant, and are dust
+          repellent.</p>
+
+        <a href="https://www.amazon.in/Eyewearlabs-Polarized-Branded-Sunglasses-Protection/dp/B0F6Y5GNPV?crid=2UXGM3AVVJOZO&dib=eyJ2IjoiMSJ9.gZkXm25x5kAFxNEZpJI6jdboEaB_LCURNNl9vHbQnXgzD-T8ggjiThxoWc78Pd-eDUWW6YB2TAeCSytdCjP_oaSwUm_nNaNVGoJ5hfWOFcxpwv5B0GkMSOY6HGsVT9rYSiJyI9jyWRb5113YqWg9nU8s_XP7p7022pipUwCV0qpsxYB2rH2zYsOyvtNKbUhBG3MnU-A4NZmv8P-G70xtmeEWpRBXumaFy7ehajZgoFQcJ8kbTX1_wqK2uPQUWk7cOnMNupmxJCWIQAjDIYYixEyv54wiyppus10nQfNpFXU.rcMssKAxoYkP_DqLF_nXW35Arb0CYD_xqluCyDo5v3Q&dib_tag=se&keywords=sunglasses+for+men+stylish&qid=1774723133&refinements=p_n_g-1004227705091%3A11301357031&rnid=11301356031&sprefix=sunglas%2Caps%2C507&sr=8-17&linkCode=ll2&tag=clothesseason-21&linkId=6dae770894f22cfc575be267856e49b8&ref_=as_li_ss_tl"><div class="flex items-center gap-3 mb-6">
+          <button
+            class="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-3 rounded-md font-semibold shadow">
+             Buy on Amazon
+          </button>
+        </div></a>
+
+        <hr class="my-6" />
+
+
+      </div>
+    </main>
+
+    <div class="max-w-4xl mx-auto p-4">
+
+      <!-- HEADER -->
+      <div class="flex items-center gap-3 mb-4">
+        <button class="w-8 h-8 rounded-full bg-gray-200">←</button>
+        <h1 class="text-lg font-semibold">Review</h1>
       </div>
 
-      <!-- Product 3 -->
-      <div class="border rounded-xl shadow-md hover:shadow-lg transition p-3">
-        <img src="https://bugattishoes.in/cdn/shop/files/328-AQ965-1400-1000.jpg?v=1746781366&width=3000" alt="Sports Shoes" class="w-full h-56 object-cover rounded-lg mb-3">
-        <h3 class="font-semibold text-lg">bugatti Manfield black Premium Leather Comfort</h3>
-        <p class="text-gray-600 mb-2">₹5,199</p>
-        <button class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 w-full">Buy Now</button>
+      <!-- RATING SECTION -->
+      <div class="bg-white rounded-xl p-4 shadow mb-4">
+
+        <!-- FLEX ON DESKTOP -->
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+
+          <!-- LEFT -->
+          <div class="text-center md:text-left">
+            <h2 class="text-3xl font-bold">4.0</h2>
+            <div class="text-yellow-400 text-lg">★★★★✩</div>
+            <p class="text-gray-500 text-sm">(109 Reviews)</p>
+          </div>
+
+          <!-- RIGHT BARS -->
+          <div class="flex-1 space-y-2">
+
+            <div class="flex items-center gap-2">
+              <span class="text-sm w-3">5</span>
+              <div class="flex-1 h-2 bg-gray-200 rounded-full">
+                <div class="h-2 bg-red-500 rounded-full w-[80%]"></div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <span class="text-sm w-3">4</span>
+              <div class="flex-1 h-2 bg-gray-200 rounded-full">
+                <div class="h-2 bg-red-400 rounded-full w-[60%]"></div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <span class="text-sm w-3">3</span>
+              <div class="flex-1 h-2 bg-gray-200 rounded-full">
+                <div class="h-2 bg-red-300 rounded-full w-[40%]"></div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <span class="text-sm w-3">2</span>
+              <div class="flex-1 h-2 bg-gray-200 rounded-full">
+                <div class="h-2 bg-red-200 rounded-full w-[20%]"></div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <span class="text-sm w-3">1</span>
+              <div class="flex-1 h-2 bg-gray-200 rounded-full">
+                <div class="h-2 bg-red-100 rounded-full w-[10%]"></div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
       </div>
 
-      <!-- Product 4 -->
-      <div class="border rounded-xl shadow-md hover:shadow-lg transition p-3">
-        <img src="https://bugattishoes.in/cdn/shop/files/321-A2X6G-4000-6300_0010.jpg?v=1746781470&width=3000" alt="Casual Shoes" class="w-full h-56 object-cover rounded-lg mb-3">
-        <h3 class="font-semibold text-lg">bugatti Chesley cognac Premium Leather Comfort </h3>
-        <p class="text-gray-600 mb-2">₹2,899</p>
-        <button class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 w-full">Buy Now</button>
+
+
+      <!-- REVIEW CARD -->
+      <div class="bg-white p-4 rounded-xl shadow mb-3">
+
+        <div class="flex justify-between items-center mb-2">
+          <div class="flex items-center gap-2">
+            <img src="https://m.media-amazon.com/images/S/amazon-avatars-global/default.png"
+              class="w-10 h-10 rounded-full">
+            <h3 class="font-semibold">Rohit Dey</h3>
+          </div>
+          <span class="text-gray-400 text-sm">Reviewed in India on 5 August 2025</span>
+        </div>
+
+        <p class="text-gray-600 text-sm mb-2">
+          Good product
+        </p>
+        <p class="text-gray-600 text-sm mb-2">
+          Great build quality and perfect fit. Covers the eyes fully with polarized UV protection lenses. Stylish square
+          full-rim design, ideal for sports and driving. Looks awesome, very comfortable. Totally value for money. A
+          must-buy. Highly recommended.
+        </p>
+
+        <div class="text-yellow-400">★★★★★ <span class="text-gray-600 text-sm">5.0</span></div>
+
       </div>
+
+      <!-- REVIEW CARD 2 -->
+      <div class="bg-white p-4 rounded-xl shadow ">
+
+        <div class="flex justify-between items-center mb-2">
+          <div class="flex items-center gap-2">
+            <img src="https://m.media-amazon.com/images/S/amazon-avatars-global/default.png"
+              class="w-10 h-10 rounded-full">
+            <h3 class="font-semibold"> Iqbal Singh Romana</h3>
+          </div>
+          <span class="text-gray-400 text-sm">26 February 2026</span>
+        </div>
+
+        <p class="text-gray-600 text-sm mb-2">
+          Good quality light weight attractive look
+        </p>
+        <p class="text-gray-600 text-sm mb-2">
+          It’s too good looking product and good quality product..light weight and good price
+          One person found this helpful
+        </p>
+
+        <div class="text-yellow-400">★★★★✩ <span class="text-gray-600 text-sm">4.0</span></div>
+
+      </div>
+
+      <div class="min-w-[180px] md:min-w-[220px] bg-white rounded-xl shadow p-3 pb-20">
+        <a
+          href="https://www.amazon.in/Eyewearlabs-Polarized-Branded-Sunglasses-Protection/dp/B0F6Y5GNPV/ref=sr_1_17?crid=2UXGM3AVVJOZO&dib=eyJ2IjoiMSJ9.gZkXm25x5kAFxNEZpJI6jdboEaB_LCURNNl9vHbQnXgzD-T8ggjiThxoWc78Pd-eDUWW6YB2TAeCSytdCjP_oaSwUm_nNaNVGoJ5hfWOFcxpwv5B0GkMSOY6HGsVT9rYSiJyI9jyWRb5113YqWg9nU8s_XP7p7022pipUwCV0qpsxYB2rH2zYsOyvtNKbUhBG3MnU-A4NZmv8P-G70xtmeEWpRBXumaFy7ehajZgoFQcJ8kbTX1_wqK2uPQUWk7cOnMNupmxJCWIQAjDIYYixEyv54wiyppus10nQfNpFXU.rcMssKAxoYkP_DqLF_nXW35Arb0CYD_xqluCyDo5v3Q&dib_tag=se&keywords=sunglasses+for+men+stylish&qid=1774723133&refinements=p_n_g-1004227705091%3A11301357031&rnid=11301356031&sprefix=sunglas%2Caps%2C507&sr=8-17#averageCustomerReviewsAnchor"><button
+            class="mt-2 w-full bg-red-500 text-white hover:bg-yellow-500 text-black font-semibold py-1.5 text-sm rounded-lg flex items-center justify-center gap-1 transition">
+            ⭐ All Reviews
+          </button>
+      </div></a>
 
     </div>
-  </section>
 
-  <!-- 🔹 About Section -->
-  <section id="about" class="max-w-6xl mx-auto px-4 py-16 text-center">
-    <h2 class="text-3xl font-bold mb-6">About ShoeVerse</h2>
-    <p class="text-gray-600 leading-relaxed max-w-3xl mx-auto">
-      At ShoeVerse, we redefine comfort and style. From sneakers to loafers, we bring premium quality footwear 
-      that combines fashion with performance. Crafted with care, designed for comfort — because every step counts.
-    </p>
-  </section>
+    <script>
+      /* ---------------------------
+         Replace these with your data
+         --------------------------- */
+      const WHATSAPP_NUMBER = ""; // without +, example: 919876543210
+      const UPI_ID = "hetshoestore@upi";
+      // Replace image paths if you have different names:
+      // put product images in `images/product.png`, `images/product-2.png`, `images/product-3.png`
+      // put qr image in `images/qr.png`
+      /* --------------------------- */
 
-  <!-- 🔹 Contact Section -->
-  <section id="contact" class="bg-gray-100 py-16">
-    <div class="max-w-4xl mx-auto text-center px-4">
-      <h2 class="text-3xl font-bold mb-6">Contact Us</h2>
-      <form class="grid gap-4">
-        <input type="text" placeholder="Your Name" class="p-3 border rounded">
-        <input type="email" placeholder="Your Email" class="p-3 border rounded">
-        <textarea placeholder="Your Message" class="p-3 border rounded"></textarea>
-        <button type="submit" class="bg-black text-white px-6 py-3 rounded hover:bg-gray-800">Send Message</button>
-      </form>
-    </div>
-  </section>
+      // set UPI id text
+      document.addEventListener('DOMContentLoaded', () => {
+        const upiText = document.getElementById('upiIdTxt');
+        if (upiText) upiText.innerText = UPI_ID;
+      });
 
-  <!-- 🔹 Footer -->
-  <footer class="bg-black text-white py-6 text-center">
-    <p>© 2025 ShoeVerse. All rights reserved. | Designed by Het Web Studio</p>
-  </footer>
+      // gallery image switch
+      function setImage(src) {
+        const main = document.getElementById('mainImg');
+        if (main) main.src = src;
+      }
 
-  <!-- 🔹 JavaScript -->
-  <script>
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
+      // modals open/close
+      function openForm() {
+        document.getElementById('orderModal').style.display = 'flex';
+        document.getElementById('orderModal').classList.add('items-center', 'justify-center');
+      }
+      function closeForm() {
+        document.getElementById('orderModal').style.display = 'none';
+      }
+      function openPayment() {
+        document.getElementById('upiModal').style.display = 'flex';
+        document.getElementById('upiModal').classList.add('items-center', 'justify-center');
+      }
+      function closePayment() {
+        document.getElementById('upiModal').style.display = 'none';
+      }
 
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-  </script>
+      // toast
+      function showToast(msg, time = 2000) {
+        const t = document.getElementById('toast');
+        t.innerText = msg;
+        t.classList.remove('hidden');
+        setTimeout(() => t.classList.add('hidden'), time);
+      }
 
+      // form submit -> send whatsapp -> show payment modal
+      function submitOrder() {
+        const name = document.getElementById('custName').value.trim();
+        const phone = document.getElementById('custPhone').value.trim();
+        const address = document.getElementById('custAddress').value.trim();
+        const size = document.getElementById('sizeSelect').value;
+        const product = document.getElementById('ordProduct').value;
+        const price = document.getElementById('ordPrice').value;
+
+        if (!name || !phone || !address || !size) {
+          alert('Please fill all details and choose size.');
+          return;
+        }
+
+        // prepare message for WhatsApp
+        let msg = `*New Order*%0AProduct: ${encodeURIComponent(product)}%0APrice: ${encodeURIComponent(price)}%0ASize: ${encodeURIComponent(size)}%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0AAddress: ${encodeURIComponent(address)}`;
+        let link = `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
+
+        // open whatsapp
+        window.open(link, '_blank');
+
+        // close form and show payment after short delay
+        closeForm();
+        setTimeout(() => { openPayment(); }, 900);
+      }
+
+      // copy UPI
+      function copyUPI() {
+        navigator.clipboard.writeText(UPI_ID).then(() => {
+          showToast('UPI ID copied ✅');
+        }).catch(() => {
+          alert('Copy failed. Please copy manually: ' + UPI_ID);
+        });
+      }
+
+      // "I have paid" clicked
+      function paidClicked() {
+        closePayment();
+        showToast('Thanks! Payment noted. We will confirm your order soon.');
+        // TODO: you can add further logic here (call backend to verify payment, etc.)
+      }
+
+      // safety: if images missing, use placeholders (optional)
+      window.addEventListener('error', (e) => {
+        // ignore missing image errors silently
+      });
+      const slider = document.getElementById("slider");
+      const dots = document.querySelectorAll(".dot");
+
+      let index = 0;
+      const total = dots.length;
+
+      function updateSlider() {
+        slider.style.transform = `translateX(-${index * 100}%)`;
+
+        dots.forEach(dot => dot.classList.remove("bg-blue-600"));
+        dots[index].classList.add("bg-blue-600");
+      }
+
+      function autoSlide() {
+        index = (index + 1) % total;
+        updateSlider();
+      }
+
+      // AUTO SCROLL EVERY 3 SEC
+      setInterval(autoSlide, 2000);
+
+      // INIT
+      updateSlider();
+
+    </script>
 </body>
+
 </html>
-
-
